@@ -19,7 +19,13 @@ public class Node {
         return next;
     }
 
+
     public void setNext(final Node next) {
         this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        return this.data;
     }
 }

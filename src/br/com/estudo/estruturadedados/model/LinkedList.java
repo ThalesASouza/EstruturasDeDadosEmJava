@@ -8,12 +8,20 @@ public class LinkedList {
     private Node secondAux;
     private int length;
 
+    public LinkedList() {}
+
     public int getLength() {
         return length;
     }
 
-    public LinkedList() {
+    public Node getHead() {
+        return this.head;
     }
+
+    public Node getTail() {
+        return this.tail;
+    }
+
 
     public void prepend(final String data) {
 
@@ -53,6 +61,7 @@ public class LinkedList {
 
         this.firstAux = this.head;
         this.secondAux = new Node(data);
+
         boolean validate = (index <= this.length && index >= 0);
 
         if (!validate) System.out.println("Invalid Index");
@@ -75,11 +84,42 @@ public class LinkedList {
         }
     }
 
+    public Node get(final int index) {
+
+        int i = 0;
+
+        boolean validate = (index <= this.length && index >= 0);
+
+        if (!validate) System.out.println("Invalid Index");
+
+        if (validate) {
+
+            if (index == 0) return this.head;
+
+            this.firstAux = this.head;
+
+            while (i != index) {
+
+                this.firstAux = this.firstAux.getNext();
+                i++;
+
+            }
+        }
+
+        return this.firstAux;
+
+    }
+
+
     public void print() {
+
         this.firstAux = this.head;
+
         while (firstAux != null) {
+
             System.out.println(firstAux.getData());
             firstAux = firstAux.getNext();
+
         }
 
     }
